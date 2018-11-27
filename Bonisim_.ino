@@ -35,10 +35,7 @@ void setup() {
 
 void loop() {
 
-
   printByte(neutral);
-
-
 
   if (digitalRead(buttonPin4) == HIGH) {
 
@@ -48,19 +45,21 @@ void loop() {
     Serial.println("c) 25");
 
 
-    while (digitalRead(buttonPin1) == LOW && digitalRead(buttonPin2) == LOW && digitalRead(buttonPin3) == LOW) {
+    while (digitalRead(buttonPin1) == LOW && digitalRead(buttonPin2) == LOW && digitalRead(buttonPin3) == LOW) {}
 
-      if (digitalRead(buttonPin1) == HIGH) {
-        printByte(smile);
-      }
-      if (digitalRead(buttonPin2) == HIGH) {
-        printByte(frown);
-      }
-      if (digitalRead(buttonPin3) == HIGH) {
-        printByte(frown);
-      }
+    if (digitalRead(buttonPin1) == HIGH) {
+      printByte(smile);
+      Serial.println("Correct!");
+      delay(1000);
+    } else if (digitalRead(buttonPin2) == HIGH) {
+      printByte(frown);
+      Serial.println("Wrong!");
+      delay(1000);
+    } else if (digitalRead(buttonPin3) == HIGH) {
+      printByte(frown);
+      Serial.println("Wrong!");
+      delay(1000);
     }
-
   } else if (digitalRead(buttonPin5) == HIGH) {
 
     Serial.println("38-16=?");
@@ -69,21 +68,22 @@ void loop() {
     Serial.println("c) 22");
 
 
-    while (digitalRead(buttonPin1) == LOW && digitalRead(buttonPin2) == LOW && digitalRead(buttonPin3) == LOW) {
+    while (digitalRead(buttonPin1) == LOW && digitalRead(buttonPin2) == LOW && digitalRead(buttonPin3) == LOW) {}
 
-      if (digitalRead(buttonPin1) == HIGH) {
-        printByte(smile);
-      }
-      if (digitalRead(buttonPin2) == HIGH) {
-        printByte(frown);
-      }
-      if (digitalRead(buttonPin3) == HIGH) {
-        printByte(frown);
-      }
+    if (digitalRead(buttonPin1) == HIGH) {
+      printByte(smile);
+      Serial.println("Correct!");
+
+      delay(1000);
+    } else if (digitalRead(buttonPin2) == HIGH) {
+      printByte(frown);
+      Serial.println("Wrong!");
+      delay(1000);
+    } else if (digitalRead(buttonPin3) == HIGH) {
+      printByte(frown);
+      Serial.println("Wrong!");
+      delay(1000);
     }
-
-
-
 
   } else if (digitalRead(buttonPin6) == HIGH) {
 
@@ -93,27 +93,32 @@ void loop() {
     Serial.println("c) 24");
 
     while (digitalRead(buttonPin1) == LOW && digitalRead(buttonPin2) == LOW && digitalRead(buttonPin3) == LOW) {
+    }
 
-      if (digitalRead(buttonPin1) == HIGH) {
-        printByte(smile);
-      }
-      if (digitalRead(buttonPin2) == HIGH) {
-        printByte(frown);
-      }
-      if (digitalRead(buttonPin3) == HIGH) {
-        printByte(frown);
-      }
+    if (digitalRead(buttonPin1) == HIGH) {
+      printByte(smile);
+      Serial.println("Correct!");
+
+      delay(1000);
+    }
+    if (digitalRead(buttonPin2) == HIGH) {
+      printByte(frown);
+      Serial.println("Wrong!");
+      delay(1000);
+    }
+    if (digitalRead(buttonPin3) == HIGH) {
+      printByte(frown);
+      Serial.println("Wrong!");
+      delay(1000);
     }
   }
 }
 
-
-void printByte(byte character [])
-{
+void printByte(byte character []) {
   int i = 0;
-  for (i = 0; i < 8; i++)
-  {
+  for (i = 0; i < 8; i++) {
     lc.setRow(0, i, character[i]);
   }
 }
+
 
