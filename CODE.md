@@ -36,10 +36,7 @@ void setup() {
 
 void loop() {
 
-
   printByte(neutral);
-
-
 
   if (digitalRead(buttonPin4) == HIGH) {
 
@@ -53,16 +50,22 @@ void loop() {
 
       if (digitalRead(buttonPin1) == HIGH) {
         printByte(smile);
+        Serial.println("Correct!");
+        delay(1000);
       }
       if (digitalRead(buttonPin2) == HIGH) {
         printByte(frown);
+        Serial.println("Wrong!");
+        delay(1000);
       }
       if (digitalRead(buttonPin3) == HIGH) {
         printByte(frown);
+        Serial.println("Wrong!");
+        delay(1000);
       }
     }
-
-  } else if (digitalRead(buttonPin5) == HIGH) {
+  }
+  else if (digitalRead(buttonPin5) == HIGH) {
 
     Serial.println("38-16=?");
     Serial.println("a) 25");
@@ -74,19 +77,23 @@ void loop() {
 
       if (digitalRead(buttonPin1) == HIGH) {
         printByte(smile);
+        Serial.println("Correct!");
+
+        delay(1000);
       }
       if (digitalRead(buttonPin2) == HIGH) {
         printByte(frown);
+        Serial.println("Wrong!");
+        delay(1000);
       }
       if (digitalRead(buttonPin3) == HIGH) {
         printByte(frown);
+        Serial.println("Wrong!");
+        delay(1000);
       }
     }
-
-
-
-
-  } else if (digitalRead(buttonPin6) == HIGH) {
+  }
+  else if (digitalRead(buttonPin6) == HIGH) {
 
     Serial.println("4x6=?");
     Serial.println("a) 30");
@@ -97,23 +104,31 @@ void loop() {
 
       if (digitalRead(buttonPin1) == HIGH) {
         printByte(smile);
+        Serial.println("Correct!");
+
+        delay(1000);
       }
       if (digitalRead(buttonPin2) == HIGH) {
         printByte(frown);
+        Serial.println("Wrong!");
+        delay(1000);
       }
       if (digitalRead(buttonPin3) == HIGH) {
         printByte(frown);
+        Serial.println("Wrong!");
+        delay(1000);
       }
     }
   }
 }
-
-
-void printByte(byte character [])
-{
+void printByte(byte character []) {
   int i = 0;
-  for (i = 0; i < 8; i++)
-  {
+  for (i = 0; i < 8; i++) {
     lc.setRow(0, i, character[i]);
   }
 }
+
+
+
+
+
